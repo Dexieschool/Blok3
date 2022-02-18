@@ -80,6 +80,10 @@ class Mastermind():
         self.potential = self.permutaties()
 
     # Kijk of een antwoord valide is
+
+
+
+
     def valide(self, guess):
 
         # Is de guess van de juiste lengte?
@@ -193,7 +197,9 @@ class Mastermind():
         # Zet een spelletje mastermind klaar
 
 
+
 game = Mastermind()
 
 # Start een nieuwe ronde
 # game.reset()
+

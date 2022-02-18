@@ -2,31 +2,25 @@ import random
 import itertools
 import time
 
-#kleuren en lengte van de code
-kleuren=['A','B','C','D']
-lengte=2
+# colors
+kleuren = ['A','B','C','D','E','F']
+lengte=4
 
-#alle combinaties
 perms=itertools.product(kleuren,repeat=lengte)
-totaal_mogelijkheden=[p for p in perms]
-lengte=(len(totaal_mogelijkheden)-1)
-print(totaal_mogelijkheden)
+possible=[p for p in perms]
 
-mogelijk = totaal_mogelijkheden.copy()
+# Global variables
+mogelijk = possible.copy()
 permslist = []
 
 
-randomnummer = (random.randint(0 , lengte))
+realcode = ['B','C','D','A']
+print("dit is de code:{}" .format(realcode))
 
-# geheime_code = totaal_mogelijkheden[randomnummer]
-#
-# print('dit is de geheime code' ,geheime_code)
-
-realcode = ['B','C']
-print(realcode)
-
-
+# feedback functie overgenomen van Lina
 def feedback(code, guess):
+
+
     # Zet de gok om naar een lijst
     guess = list(guess)
 
@@ -40,7 +34,7 @@ def feedback(code, guess):
     juiste_kleur = 0
 
     # Loop over de code om de juiste kleur verkeerde positie te bepalen
-    for i in range(2):
+    for i in range(lengte):
 
         # Exacte match?
         if (kopie_code[i] == guess[i]):
@@ -54,7 +48,7 @@ def feedback(code, guess):
 
     # Nu we alle juiste eruit gefilterd hebben kunnen we kijken
     # naar wat nog op de verkeerde plek staat.
-    for i in range(2):
+    for i in range(lengte):
 
         # Zit de kleur ergens anders in de code
         if guess[i] in kopie_code:
@@ -70,42 +64,35 @@ def feedback(code, guess):
 def permover(guess,feedbacc):
     permslist = []
     count = 0
+    # maakt lijst met alle feedback
     for i in mogelijk:
         permslist.append(feedback(guess, i))
 
     mogelijk2 = mogelijk.copy()
-
+    # checkt welke feedback niet gelijk is aan de feedback die gekregen is van de
+    # de echte code te vergelijken met de input
     for a in permslist:
         if a != feedbacc:
             remover = mogelijk2[count]
             mogelijk.remove(remover)
 
         count += 1
-        print(mogelijk)
 
 
-
-
-    print(mogelijk)
-    print(permslist)
     return mogelijk[0]
 
 
 def simple(code):
-    guess = 'AA'
+    guess = 'AAAA'
     codecheck = ''.join(code)
     while guess != codecheck:
-
-        if guess == codecheck:
-            print('je wint')
-        if guess != codecheck:
             feed = feedback(realcode,guess)
             guess = ''.join(permover(guess,feed))
             print(guess)
             time.sleep(1)
 
-    return True
+    return 'je hebt gewonnen'
 
-simple(realcode)
+print(simple(realcode))
 
 
