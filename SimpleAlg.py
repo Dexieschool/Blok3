@@ -85,6 +85,7 @@ def permover(guess,feedbacc):
 def simple(code):
     guess = 'AAAA'
     codecheck = ''.join(code)
+    # blijf gokken tot dat het goed is
     while guess != codecheck:
             feed = feedback(realcode,guess)
             guess = ''.join(permover(guess,feed))
