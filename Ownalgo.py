@@ -101,11 +101,12 @@ def mogelijkheden():
     for i in listdict:
         highestnumber.append(i[highest[count]])
         count += 1
-    indexmin = min(range(len(highestnumber)), key=highestnumber.__getitem__)
+    indexmin = max(range(len(highestnumber)), key=highestnumber.__getitem__)
     return indexmin
 
 def simple(code):
-    guess = mogelijk[mogelijkheden()]
+    guess = ''.join(mogelijk[mogelijkheden()])
+    print(guess,'first guess')
     codecheck = ''.join(code)
     # blijf gokken tot dat het goed is
     count = 1
