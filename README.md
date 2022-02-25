@@ -4,4 +4,4 @@
 # Worstcase is voor de worstcase algoritme
 # Ownalgo is voor mijn zelfgemaakte algoritme
 
-# je kunt de lengte veranderen aan de bovekant van elk algoritme bestand
+# je kunt de lengte van de code veranderen aan de bovekant van elk algoritme bestand
