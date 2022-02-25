@@ -8,7 +8,6 @@ lengte=4
 
 perms=itertools.product(kleuren,repeat=lengte)
 possible=[p for p in perms]
-print(len(possible))
 
 # global variables
 mogelijk = possible.copy()
@@ -49,7 +48,6 @@ def mogelijkheden():
             elif fednorm not in templist:
                 templist[fednorm] = 1
         listdict.append(templist)
-        print(templist)
     highest = []
     highestnumber = []
 

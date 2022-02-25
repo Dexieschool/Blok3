@@ -44,13 +44,15 @@ def permover(guess,feedbacc):
 def simple(code):
     guess = 'AAAA'
     codecheck = ''.join(code)
+    count = 1
+
     # blijf gokken tot dat het goed is
     while guess != codecheck:
             feed = feedback(realcode,guess,lengte)
             guess = ''.join(permover(guess,feed))
             print(guess)
-            time.sleep(1)
-
+            count += 1
+            print('aantal guesses', count)
     return 'je hebt gewonnen'
 
 print(simple(realcode))
